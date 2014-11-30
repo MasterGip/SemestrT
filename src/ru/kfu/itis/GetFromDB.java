@@ -22,9 +22,9 @@ public class GetFromDB {
             Statement statement = connection.createStatement();
             res = statement.executeQuery(temp);
             while(res.next()){
-               returningList.add(res.getInt("id") + " " + res.getString("Film") + " "
-                + res.getString("Author") + " " + res.getString("Company") +
-                    " " + res.getInt("Year") + ",Цена: " + res.getString("Cost"));
+                returningList.add(res.getInt("id") + " " + res.getString("Film") + " "
+                        + res.getString("Author") + " " + res.getString("Company") +
+                        " " + res.getInt("Year") + ",Цена: " + res.getString("Cost"));
 
             }
 
@@ -121,8 +121,8 @@ public class GetFromDB {
     }
 
     public static boolean insertIntoBooks(String film, String author, String
-                                       comment, int pages, String company,
-                                       int year, float cost, boolean cdrom, String INNOfProducer){
+            comment, int pages, String company,
+                                          int year, float cost, boolean cdrom, String INNOfProducer){
         boolean b = false;
         String url = "jdbc:mysql://localhost:3306/BooksDB";
         Connection connection = null;;
@@ -224,9 +224,9 @@ public class GetFromDB {
     }
 
     public static boolean insertIntoCustomer(String customer, boolean customerSign,
-                        String iNNcustomer, String addressCust, String chief,
-                        String bankCustomer, String phone, String district,
-                        String accountCust){
+                                             String iNNcustomer, String addressCust, String chief,
+                                             String bankCustomer, String phone, String district,
+                                             String accountCust){
         boolean b = false;
         String url = "jdbc:mysql://localhost:3306/BooksDB";
         Connection connection = null;;
@@ -264,8 +264,8 @@ public class GetFromDB {
     }
 
     public static boolean insertIntoInvoice(Date dateStart,
-                                         String worker, String plus,
-                                         String customerINN){
+                                            String worker, String plus,
+                                            String customerINN){
         boolean b = false;
         String url = "jdbc:mysql://localhost:3306/BooksDB";
         Connection connection = null;;
@@ -302,8 +302,8 @@ public class GetFromDB {
     }
 
     public static boolean insertIntoProducer(String provider, String iNN,
-                                          String address, String bank, String account,
-                                          boolean sign){
+                                             String address, String bank, String account,
+                                             boolean sign){
         boolean b = false;
         String url = "jdbc:mysql://localhost:3306/BooksDB";
         Connection connection = null;;
@@ -361,19 +361,29 @@ public class GetFromDB {
             preparedStatement.setString(1, district);
             preparedStatement.setString(2, date);
             System.out.println("!");
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet;
 
             list = new ArrayList<ArrayList<String>>();
             ArrayList<String> listFromOneCortege = new ArrayList<String>();
-            listFromOneCortege.add("CountNumber");
-            listFromOneCortege.add("DateStart");
-            listFromOneCortege.add("Value");
-            listFromOneCortege.add("Worker");
-            listFromOneCortege.add("Tax");
-            listFromOneCortege.add("Plus");
-            listFromOneCortege.add("CustomerINN");
-            list.add(listFromOneCortege);
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT COLUMN_NAME " +
+                    "FROM information_schema.COLUMNS WHERE table_name='Invoice'");
             while(resultSet.next()){
+                listFromOneCortege.add(resultSet.getString(1));
+            }
+//            listFromOneCortege.add("CountNumber");
+//            listFromOneCortege.add("DateStart");
+//            listFromOneCortege.add("Value");
+//            listFromOneCortege.add("Worker");
+//            listFromOneCortege.add("Tax");
+//            listFromOneCortege.add("Plus");
+//            listFromOneCortege.add("CustomerINN");
+            list.add(listFromOneCortege);
+
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+//                System.out.println();
+
                 listFromOneCortege = new ArrayList<String>();
                 //System.out.println(resultSet.getInt("CountNumber"));
                 for(int i = 1; i <= 7; i++){
