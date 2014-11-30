@@ -368,7 +368,9 @@ public class GetFromDB {
             Statement statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT COLUMN_NAME " +
                     "FROM information_schema.COLUMNS WHERE table_name='Invoice'");
+            int numberOfAttributtes = 0;
             while(resultSet.next()){
+                numberOfAttributtes++;
                 listFromOneCortege.add(resultSet.getString(1));
             }
 //            listFromOneCortege.add("CountNumber");
@@ -386,7 +388,7 @@ public class GetFromDB {
 
                 listFromOneCortege = new ArrayList<String>();
                 //System.out.println(resultSet.getInt("CountNumber"));
-                for(int i = 1; i <= 7; i++){
+                for(int i = 1; i <= numberOfAttributtes; i++){
                     listFromOneCortege.add(resultSet.getString(i));
                 }
                 list.add(listFromOneCortege);

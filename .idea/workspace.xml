@@ -26,8 +26,8 @@
       <file leaf-file-name="GetFromDB.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/kfu/itis/GetFromDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.786385" vertical-offset="5440" max-vertical-offset="7005">
-              <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.75117373" vertical-offset="5530" max-vertical-offset="7035">
+              <caret line="390" column="55" selection-start-line="390" selection-start-column="55" selection-end-line="390" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#242#250#0" expanded="true" />
@@ -35,17 +35,17 @@
                 <element signature="e#2942#2950#0" expanded="true" />
                 <element signature="e#12632#12651#0" expanded="true" />
                 <element signature="e#14047#14055#0" expanded="true" />
-                <marker date="1417374682695" expanded="true" signature="399:418" placeholder="SELECT * FRO..Books..." />
-                <marker date="1417374682695" expanded="true" signature="1849:1873" placeholder="SELECT INN F..Producer..." />
-                <marker date="1417374682695" expanded="true" signature="3099:3130" placeholder="SELECT Count..Invoice..." />
-                <marker date="1417374682695" expanded="true" signature="4505:4642" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="6062:6103" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="7125:7168" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="8482:8529" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="10060:10155" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="11453:11494" placeholder="INSERT INTO ..." />
-                <marker date="1417374682695" expanded="true" signature="12907:13429" placeholder="SELECT DISTI..." />
-                <marker date="1417374682695" expanded="true" signature="14171:14273" placeholder="SELECT COLUM..COLUMNS..." />
+                <marker date="1417374869943" expanded="true" signature="399:418" placeholder="SELECT * FRO..Books..." />
+                <marker date="1417374869943" expanded="true" signature="1849:1873" placeholder="SELECT INN F..Producer..." />
+                <marker date="1417374869943" expanded="true" signature="3099:3130" placeholder="SELECT Count..Invoice..." />
+                <marker date="1417374869943" expanded="true" signature="4505:4642" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="6062:6103" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="7125:7168" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="8482:8529" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="10060:10155" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="11453:11494" placeholder="INSERT INTO ..." />
+                <marker date="1417374869943" expanded="true" signature="12907:13429" placeholder="SELECT DISTI..." />
+                <marker date="1417374869943" expanded="true" signature="14171:14273" placeholder="SELECT COLUM..COLUMNS..." />
               </folding>
             </state>
           </provider>
@@ -582,12 +582,12 @@
       <changelist id="c005d73b-2cda-49cb-9911-cadf7df9f775" name="Default" comment="" />
       <created>1417373358635</created>
       <updated>1417373358635</updated>
-      <workItem from="1417373355008" duration="1327000" />
+      <workItem from="1417373355008" duration="1540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1327000" />
+    <option name="totallyTimeSpent" value="1540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
@@ -674,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/kfu/itis/GetFromDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.786385" vertical-offset="5440" max-vertical-offset="7005">
-          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.75117373" vertical-offset="5530" max-vertical-offset="7035">
+          <caret line="390" column="55" selection-start-line="390" selection-start-column="55" selection-end-line="390" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#242#250#0" expanded="true" />
@@ -683,17 +683,17 @@
             <element signature="e#2942#2950#0" expanded="true" />
             <element signature="e#12632#12651#0" expanded="true" />
             <element signature="e#14047#14055#0" expanded="true" />
-            <marker date="1417374682695" expanded="true" signature="399:418" placeholder="SELECT * FRO..Books..." />
-            <marker date="1417374682695" expanded="true" signature="1849:1873" placeholder="SELECT INN F..Producer..." />
-            <marker date="1417374682695" expanded="true" signature="3099:3130" placeholder="SELECT Count..Invoice..." />
-            <marker date="1417374682695" expanded="true" signature="4505:4642" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="6062:6103" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="7125:7168" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="8482:8529" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="10060:10155" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="11453:11494" placeholder="INSERT INTO ..." />
-            <marker date="1417374682695" expanded="true" signature="12907:13429" placeholder="SELECT DISTI..." />
-            <marker date="1417374682695" expanded="true" signature="14171:14273" placeholder="SELECT COLUM..COLUMNS..." />
+            <marker date="1417374869943" expanded="true" signature="399:418" placeholder="SELECT * FRO..Books..." />
+            <marker date="1417374869943" expanded="true" signature="1849:1873" placeholder="SELECT INN F..Producer..." />
+            <marker date="1417374869943" expanded="true" signature="3099:3130" placeholder="SELECT Count..Invoice..." />
+            <marker date="1417374869943" expanded="true" signature="4505:4642" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="6062:6103" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="7125:7168" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="8482:8529" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="10060:10155" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="11453:11494" placeholder="INSERT INTO ..." />
+            <marker date="1417374869943" expanded="true" signature="12907:13429" placeholder="SELECT DISTI..." />
+            <marker date="1417374869943" expanded="true" signature="14171:14273" placeholder="SELECT COLUM..COLUMNS..." />
           </folding>
         </state>
       </provider>
