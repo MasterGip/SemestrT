@@ -353,14 +353,14 @@ public class GetFromDB {
                 "ON t1.INNcustomer=t2.CustomerINN INNER JOIN Books_in_invoice ON Books_in_invoice.CountNumber=t2.CountNumber " +
                 "INNER JOIN (SELECT id FROM Books WHERE Cdrom=true) AS t3 ON Books_in_invoice.BookID=t3.id";
         try{
-            System.out.println("!!!");
+            //System.out.println("!!!");
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(url, "user", "password");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            System.out.println("!!");
+            //System.out.println("!!");
             preparedStatement.setString(1, district);
             preparedStatement.setString(2, date);
-            System.out.println("!");
+            //System.out.println("!");
             ResultSet resultSet;
 
             list = new ArrayList<ArrayList<String>>();
@@ -383,6 +383,7 @@ public class GetFromDB {
             list.add(listFromOneCortege);
 
             resultSet = preparedStatement.executeQuery();
+            //System.out.println("Size " + resultSet.getFetchSize());
             while(resultSet.next()){
 //                System.out.println();
 
@@ -418,6 +419,596 @@ public class GetFromDB {
 
         return returning;
     }
+
+    public static String[][] getProducerInfoForSecondNumber(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT INN, Provider FROM Producer";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 2;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("ИНН Поставщика книги");
+            listFromOneCortege.add("Имя");
+
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getBooksInfoForSecondNumber(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT id, Film FROM Books";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 2;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("id книги");
+            listFromOneCortege.add("Название");
+
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getBooksInInvoiceInfoForSecondNumber(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM Producer";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 2;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("id Книги");
+            listFromOneCortege.add("Номер счет-фактуры");
+
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getInvoiceInfoForSecondNumber(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT CountNumber, DateStart, CustomerINN FROM Invoice";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 3;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("Номер счета-фактуры");
+            listFromOneCortege.add("Дата");
+            listFromOneCortege.add("ИНН заказчика");
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getCustomerInfoForSecondNumber(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT INNcustomer, Customer FROM Customer";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 2;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("ИНН заказчика");
+            listFromOneCortege.add("Имя заказчика");
+
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+
+
+
+    public static String[][] getFirstNumberTableFromSecondSemester(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+        System.out.println("1");
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT Producer.INN AS ProdINN, id, Film, Invoice.CountNumber, DateStart FROM " +
+                    "Producer RIGHT JOIN Books ON Producer.INN=Books.INNOfProducer " +
+                    "LEFT JOIN Books_in_invoice ON Books.id=BookID " +
+                    "LEFT JOIN Invoice " +
+                    "ON Books_in_invoice.CountNumber = Invoice.CountNumber ORDER BY id";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 5;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("ИНН Поставщика книги");
+            listFromOneCortege.add("id Книги");
+            listFromOneCortege.add("Название книги");
+            listFromOneCortege.add("Номер счета-фактуры");
+            listFromOneCortege.add("Дата счета фактуры");
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getSecondNumberTableFromSecondSemester(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+        System.out.println("2");
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT id, Film, MIN(DateStart), COUNT(DISTINCT Books_in_invoice.CountNumber) " +
+                    "FROM Books LEFT JOIN Books_in_invoice ON Books.id=Books_in_invoice.BookID " +
+                    "LEFT JOIN Invoice ON Invoice.CountNumber = Books_in_invoice.CountNumber " +
+                    "GROUP BY id";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 4;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+
+            listFromOneCortege.add("id Книги");
+            listFromOneCortege.add("Название книги");
+            listFromOneCortege.add("Минимальная дата счета");
+            listFromOneCortege.add("Число счетов фактуры");
+
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getThirdNumberTableFromSecondSemester(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+        System.out.println("3");
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT Producer.INN, id, Film, Invoice.CountNumber, INNcustomer, Customer     " +
+                    "FROM Producer RIGHT JOIN Books ON Producer.INN = Books.INNOfProducer " +
+                    "LEFT JOIN Books_in_invoice ON Books.id=Books_in_invoice.BookID " +
+                    "LEFT JOIN Invoice ON Invoice.CountNumber=Books_in_invoice.CountNumber " +
+                    "LEFT JOIN Customer ON Customer.INNcustomer=Invoice.CustomerINN " +
+                    "UNION DISTINCT " +
+                    "SELECT Producer.INN, id, Film, Invoice.CountNumber, INNcustomer, Customer " +
+                    "FROM Producer RIGHT JOIN Books ON Producer.INN = Books.INNOfProducer " +
+                    "RIGHT JOIN Books_in_invoice ON Books.id=Books_in_invoice.BookID " +
+                    "RIGHT JOIN Invoice ON Invoice.CountNumber=Books_in_invoice.CountNumber " +
+                    "RIGHT JOIN Customer ON Customer.INNcustomer=Invoice.CustomerINN ORDER BY id, INNcustomer";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 6;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("ИНН Поставщика книги");
+            listFromOneCortege.add("id Книги");
+            listFromOneCortege.add("Название книги");
+            listFromOneCortege.add("Номер счета-фактуры");
+            listFromOneCortege.add("ИНН заказчика");
+            listFromOneCortege.add("Имя заказчика");
+
+
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+    public static String[][] getFourthNumberTableFromSecondSemester(){
+        Connection connection = null;
+        String url = "jdbc:mysql://localhost:3306/BooksDB";
+        ArrayList<ArrayList<String>> returningList = new ArrayList<>();
+        System.out.println("4");
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection(url, "user", "password");
+            Statement statement = connection.createStatement();
+            String query = "SELECT id, Film, INNcustomer, Customer, CountNumber, DateStart, COUNT(DISTINCT CountNumber), MIN(DateStart) FROM( " +
+                    "SELECT id, Film, INNcustomer, Customer,  Invoice.CountNumber, Invoice.DateStart " +
+                    "FROM Producer RIGHT JOIN Books ON Producer.INN = Books.INNOfProducer " +
+                    "LEFT JOIN Books_in_invoice ON Books.id=Books_in_invoice.BookID " +
+                    "LEFT JOIN Invoice ON Invoice.CountNumber=Books_in_invoice.CountNumber " +
+                    "LEFT JOIN Customer ON Customer.INNcustomer=Invoice.CustomerINN " +
+                    "UNION distinct " +
+                    "(SELECT id, Film, INNcustomer, Customer, Invoice.CountNumber, Invoice.DateStart " +
+                    "FROM Producer RIGHT JOIN Books ON Producer.INN = Books.INNOfProducer " +
+                    "RIGHT JOIN Books_in_invoice ON Books.id=Books_in_invoice.BookID " +
+                    "RIGHT JOIN Invoice ON Invoice.CountNumber=Books_in_invoice.CountNumber " +
+                    "RIGHT JOIN Customer ON Customer.INNcustomer=Invoice.CustomerINN )  ) as t1 GROUP BY id, INNcustomer ORDER BY id, INNCustomer";
+
+            ResultSet resultSet = null;
+            int numberOfAttributes = 8;
+            ArrayList<String> listFromOneCortege = new ArrayList<>();
+
+            listFromOneCortege.add("id книги");
+            listFromOneCortege.add("Название книги");
+            listFromOneCortege.add("ИНН заказчика");
+            listFromOneCortege.add("Имя заказчика");
+            listFromOneCortege.add("Номер счета фактуры");
+            listFromOneCortege.add("Дата счета фактуры");
+            listFromOneCortege.add("Число счетов");
+            listFromOneCortege.add("Минимальная дата счета");
+
+            returningList.add(listFromOneCortege);
+
+
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                //System.out.println("mMmmM");
+                listFromOneCortege = new ArrayList<>();
+                for(int i = 1; i <= numberOfAttributes; i++){
+                    //System.out.println(resultSet.getString(i));
+                    listFromOneCortege.add(resultSet.getString(i));
+                }
+                returningList.add(listFromOneCortege);
+            }
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String[][] returning = null;
+        if(returningList.size()!=0){
+            returning = new String[returningList.size()][returningList.get(0).size()];
+            for(int i = 0; i < returning.length; i++){
+                for(int j = 0; j < returning[i].length; j++){
+                    returning[i][j] = returningList.get(i).get(j);
+                }
+            }
+        }
+        return returning;
+
+    }
+
+
 
 //    public static void makeNum(Date date, String dist){
 //        ArrayList<String> returningList = new ArrayList<String>();

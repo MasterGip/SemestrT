@@ -134,5 +134,6 @@
             <input type="submit" name = "code" value="Сделать первый номер!"/>
         </form>
         <hr/>
+        <a href="second_number.jsp">Второй номер</a>
   </body>
 </html>
